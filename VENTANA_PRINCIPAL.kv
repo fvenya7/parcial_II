@@ -1,0 +1,637 @@
+<MenuScreen>:
+    BoxLayout:
+        canvas:            
+            Color: 
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            color: 0,0,0,0.8
+            text: 'BIENVENIDO!!'
+            font_size: 45
+
+        Button:
+            text: 'BOLETA'
+            size_hint: (.25, .2)
+            pos_hint: {'x':.374, 'y':.2}
+            background_color: 65/255, 105/255, 1,0.9
+            on_release: root.manager.current = 'boleta'
+        Button:
+            text: 'INVENTARIO'
+            size_hint: (.25, .2)
+            pos_hint: {'x':.374, 'y':.2}
+            background_color: 65/255, 105/255, 1,0.9
+            on_release: root.manager.current = 'inventario'
+        Button:
+            text: 'SALIR'
+            size_hint: (.25, .2)
+            pos_hint: {'x':.374, 'y':.2}
+            background_color: 0.7, 0, 0.1, 0.9
+
+<BoletaScreen>:
+    BoxLayout:
+        id: idbox
+        canvas:
+            Color: 
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            size_hint: (1, .3)
+            color: 0,0,0,0.8
+            text: 'VENTANA VENTAS'
+            font_size: 45
+        GridLayout:
+            id: GRIDBOLETA
+            size_hint: (1, .3)
+            cols: 7
+            canvas:
+                Color: 
+                    rgba: [170/255,203/255,110/255, 1] 
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        GridLayout:
+            orientation: 'tb-lr'
+            rows: 5
+
+            #PARA LOS CODIGOS
+            
+            TextInput:
+                id: VBCodigo1
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(0)
+            TextInput:
+                id: VBCodigo2
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(1)
+            TextInput:
+                id: VBCodigo3
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(2)
+            TextInput:
+                id: VBCodigo4
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(3)
+            TextInput:
+                id: VBCodigo5
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(4)
+
+            #label para nombres
+
+            Label:
+                id: VBNombre1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre5
+                text: '---'
+                color: 0,0,0,1
+
+            #para categoria
+
+            Label:
+                id: VBCategoria1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria5
+                text: '---'
+                color: 0,0,0,1
+
+            #para precio
+
+            Label:
+                id: VBPrecio1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio5
+                text: '---'
+                color: 0,0,0,1
+
+            #para stock disponible
+
+            Label:
+                id: VBStockdis1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis5
+                text: '---'
+                color: 0,0,0,1
+
+            #entrada de cantidad
+
+            TextInput:
+                id: VBCantidad1
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(0)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad2
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(1)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad3
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(2)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad4
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(3)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad5
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(4)
+                on_text: root.Calcular_Total()
+        
+            #para el sutotal
+
+            Label:
+                id: VBSub1
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub2
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub3
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub4
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub5
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+
+
+        GridLayout:
+            cols: 7
+            size_hint: (1, .15)
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: 'TOTAL:'
+                color: 0,0,0,1
+            Label:
+                id: total
+                text:  'S/. 00.00'
+                color: 0,0,0,1
+        GridLayout:
+            cols: 5
+            size_hint: (1, .15)
+            Label:
+                text: ''
+            Button:
+                text: 'VOLVER'
+                on_release: root.manager.current = 'menu'
+            Label:
+                text: ''
+            Button:
+                text: 'CONFIRMAR VENTA'
+                background_color: 65/255, 105/255, 1,0.9
+                on_release: root.pop_confirmacion()
+            Label:
+                text: ''
+
+
+<Pop_Advertencia>:
+    size_hint: .8,.35
+    title: 'ADVERTENCIA'
+    BoxLayout: 
+        canvas:
+            Color:
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            text: 'PORFAVOR, INGRESE UNA CANTIDAD MENOR O IGUAL AL STOCK DISPONIBLE'
+            color: 0,0,0,1
+        Button:
+            text: 'ACEPTAR'
+            on_release: root.dismiss()
+
+
+<CatalogoScreen>:
+    FloatLayout:
+        pos: (0,0)
+        canvas:
+            Color:
+                rgba: [224/255,1,1, 1]
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Button:
+            text: 'PAPEL HIGIENICO'
+            size_hint: (.25, .1)
+            pos_hint: {'x':.2, 'y':.6}
+        Button:
+            text: 'GALLETA'
+            size_hint: (.25, .1)
+            pos_hint: {'x':.2, 'y':.5}
+        Button:
+            text: 'DETERGENTE'
+            size_hint: (.25, .1)
+            pos_hint: {'x':.2, 'y':.4}
+
+<InventarioScreen>:
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1,1
+            Label:
+                color: 0,0,0,0.8
+                text: 'INVENTARIO'
+                font_size: 45
+        BoxLayout:
+            size_hint: 0.8,1
+            pos_hint: {'x':.1}
+            BoxLayout:
+                size_hint: 1,0.4
+                pos_hint: {'y':.4}
+                Button:
+                    text: 'Actualizar stock'
+                    background_color: 65/255, 105/255, 1,1
+                    on_release: root.manager.current = 'actstock'
+                    
+                Button:
+                    text: 'Agregar producto'
+                    background_color: 65/255, 105/255, 1,1
+                    on_release: root.manager.current = 'aproducto'
+
+                Button:
+                    text: 'Regresar al menu'
+                    on_release: root.manager.current = 'menu'
+<Actualizar_Stock>:
+    BoxLayout: 
+        canvas:
+            Color:
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        BoxLayout:
+            size_hint: 1,0.3
+            Label:
+                color: 0,0,0,0.8
+                text: 'ACTUALIZAR STOCK'
+                font_size: 45
+        BoxLayout:
+            size_hint: 0.8,1
+            pos_hint: {'x':.1}
+            GridLayout:
+                canvas:
+                    Color:
+                        rgba: [213/255,197/255,44/255, 0.6] 
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                cols: 3
+                Label:
+                    text: 'CODIGO'
+                    color: 0,0,0,1
+                Label:
+                    text: 'NOMBRE'
+                    color: 0,0,0,1
+                Label:
+                    text: 'STOCK ACTUAL'
+                    color: 0,0,0,1
+                TextInput:
+                    id: entradacodigo
+                    write_tab: False
+                    hint_text: 'INGRESE CODIGO'
+                    color: 0,0,0,1
+                    multiline: False
+                    on_text_validate: root.consultar_nombre()
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: [169/255,223/255,191/255,0.5] 
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    id: salidanombre
+                    text: 'NOMBRE DEL PRODUCTO'
+                    color: 0,0,0,1
+                    
+                Label:
+                    canvas.before:
+                        Color:
+                            rgba: [169/255,223/255,191/255,0.5]
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+                    id: salidastock
+                    text: 'STOCK ACTUAL'
+                    color: 0,0,0,1
+                Label:
+                    text: 'Ingreso :'
+                    color: 0,0,0,1
+                TextInput:
+                    id: ingresostock
+                    hint_text: 'AÑADIR AL STOCK'
+                    color: 0,0,0,1
+                    multiline: False
+                    on_text_validate: root.Sumar_Stock()
+                    on_text_validate: root.Abrir_Pop()
+                    
+                Button:
+                    text:'Limpiar'
+                    background_color: 65/255, 105/255, 1,0.9    
+                    on_release: root.Limpiar()
+        BoxLayout:
+            size_hint: 0.8,0.2
+            pos_hint: {'x':.1}
+            GridLayout:
+            
+                cols: 3
+                
+                Label:
+                    text: ''
+                Button:
+                    pos_hint: {'y':0}
+                    text: 'Volver' 
+                    on_release: root.manager.current = 'inventario'
+                Label:
+                    text: ''
+
+        BoxLayout:
+            size_hint: 0.2,0.2
+
+<Pop>:
+    id: pop
+    auto_dismiss: False
+    size_hint: .5,.4
+    title: 'VENTANA DE CONFIRMACION'
+    BoxLayout: 
+        canvas:
+            Color:
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        BoxLayout:
+            Label:
+                text: 'ACTUALIZACION EXITOSA!'
+                color: 0,0,0,0.5
+        BoxLayout:
+            GridLayout:
+                cols: 2
+                Label:
+                    text: 'PRODUCTO'
+                    color: 0,0,0,1
+                Label:
+                    text: 'NUEVO STOCK'
+                    color: 0,0,0,1
+                Label:
+                    id: vpnombre
+                    color: 0,0,0,1
+                Label:
+                    id: vpstock
+                    color: 0,0,0,1
+        BoxLayout:
+            Button:
+                text: 'Aceptar'
+                on_release: root.Llamar_Limpiar()
+                on_release: root.dismiss()
+
+<Agregar_Producto>:
+    BoxLayout:
+        canvas:
+            Color: 
+                rgba: [251/255,250/255,208/255, 1] 
+            Rectangle:
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            size_hint: (1, .35)
+            color: 0,0,0,0.8
+            text: 'AGREGAR PRODUCTO NUEVO'
+            font_size: 45
+            canvas.before:
+                Color: 
+                    rgba: [247/255,220/255,111/255, 1] 
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        GridLayout:
+            cols: 3
+            Label:
+                text:'CATEGORIA'
+                color: 0,0,0,0.9
+                font_size: 18
+            Spinner:
+                id: spin
+                text: 'CATEGORIA'
+                on_text: root.Comprobar_Categoria()
+                color: 1,1,1,1
+                font_size: 18
+            TextInput:
+                id: entrada_nueva_cat
+                
+                readonly: True
+                multiline: False
+                on_text_validate: root.Guardar_Nuevo()
+                hint_text: '--------'
+                color: 0,0,0,0.9
+                font_size: 18
+            Label:
+                text:'NOMBRE'
+                color: 0,0,0,0.9
+                font_size: 18
+            TextInput:
+                id: APNombre
+                write_tab: False
+                hint_text: 'INGRESE NOMBRE'
+            Label:
+                text:''
+            Label:
+                text:'CODIGO'
+                color: 0,0,0,0.9
+                font_size: 18
+            TextInput:
+                id: APCodigo
+                write_tab: False
+                multiline: False
+                hint_text: 'INGRESE CODIGO DE 5 DIGITOS'
+                on_text: root.Comprobar_Codigo()
+            Label:
+                text:''
+            Label:
+                text:'PRECIO COSTO'
+                color: 0,0,0,0.9
+                font_size: 18
+            TextInput:
+                id: APPC
+                write_tab: False
+                input_filter: 'float'
+                hint_text: 'INGRESE PRECIO COSTO'
+            Label:
+                text:''
+            Label:
+                text:'PRECIO VENTA'
+                color: 0,0,0,0.9
+                font_size: 18
+            TextInput:
+                id: APPV
+                write_tab: False
+                input_filter: 'float'
+                hint_text: 'INGRESE PRECIO VENTA'
+                multiline: False
+                on_text: root.Calcular_Utilidad()
+            Label:
+                text:''
+            Label:
+                text:'UTILIDAD'
+                color: 0,0,0,0.9
+                font_size: 18
+            TextInput:
+                id: APU
+                write_tab: False
+                hint_text: 'UTILIDAD'
+                readonly: True
+                multiline: False
+            Label:
+                text:''
+            Label:
+                text:'STOCK'
+                color: 0,0,0,0.9
+                font_size: 18
+            TextInput:
+                id: APStock
+                input_filter: 'int'
+                hint_text: 'INGRESE STOCK'
+            Label:
+                text:''
+            Button:
+                text: 'VOLVER'
+                on_release: root.manager.current = 'inventario'
+            Label:
+                text:''
+            Button:
+                text: 'GUARDAR'
+                background_color: 65/255, 105/255, 1,0.9
+                on_release: root.Guardar_Nuevo()
+                on_release: root.Abrir_Pop_Confirmacion_Nuevo()
+
+<Pop_Confirmacion>:
+    size_hint: .5,.4
+    title: 'VENTANA DE CONFIRMACION'
+    BoxLayout: 
+        canvas:
+            Color:
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            text: 'ACTUALIZACION EXITOSA!'
+            color: 0,0,0,0.5
+        Button:
+            text: 'ACEPTAR'
+            on_release: root.dismiss()
+
+

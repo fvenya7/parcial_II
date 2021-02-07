@@ -1,0 +1,275 @@
+<KvWindow>:
+    BoxLayout:
+        id: idbox
+        canvas:
+            Color: 
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            size_hint: (1, .3)
+            color: 0,0,0,0.8
+            text: 'VENTANA VENTAS'
+            font_size: 45
+        GridLayout:
+            id: GRIDBOLETA
+            size_hint: (1, .3)
+            cols: 7
+            canvas:
+                Color: 
+                    rgba: [170/255,203/255,110/255, 1] 
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+        
+        GridLayout:
+            orientation: 'tb-lr'
+            rows: 5
+
+            #PARA LOS CODIGOS
+            
+            TextInput:
+                id: VBCodigo1
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(0)
+            TextInput:
+                id: VBCodigo2
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(1)
+            TextInput:
+                id: VBCodigo3
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(2)
+            TextInput:
+                id: VBCodigo4
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(3)
+            TextInput:
+                id: VBCodigo5
+                multiline: False
+                write_tab: False
+                hint_text: 'INGRESE CODIGO'
+                on_text: root.Llenar_Boletas(4)
+
+            #label para nombres
+
+            Label:
+                id: VBNombre1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBNombre5
+                text: '---'
+                color: 0,0,0,1
+
+            #para categoria
+
+            Label:
+                id: VBCategoria1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBCategoria5
+                text: '---'
+                color: 0,0,0,1
+
+            #para precio
+
+            Label:
+                id: VBPrecio1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBPrecio5
+                text: '---'
+                color: 0,0,0,1
+
+            #para stock disponible
+
+            Label:
+                id: VBStockdis1
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis2
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis3
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis4
+                text: '---'
+                color: 0,0,0,1
+            Label:
+                id: VBStockdis5
+                text: '---'
+                color: 0,0,0,1
+
+            #entrada de cantidad
+
+            TextInput:
+                id: VBCantidad1
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(0)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad2
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(1)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad3
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(2)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad4
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(3)
+                on_text: root.Calcular_Total()
+            TextInput:
+                id: VBCantidad5
+                multiline: False
+                write_tab: False
+                input_filter: 'int'
+                hint_text: 'INRESE CANTIDAD'
+                on_text: root.Llenar_Boletas(4)
+                on_text: root.Calcular_Total()
+        
+            #para el sutotal
+
+            Label:
+                id: VBSub1
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub2
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub3
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub4
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+            Label:
+                id: VBSub5
+                text: 'S/. 00.00'
+                color: 0,0,0,1
+
+
+        GridLayout:
+            cols: 7
+            size_hint: (1, .15)
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: ''
+            Label:
+                text: 'TOTAL:'
+                color: 0,0,0,1
+            Label:
+                id: total
+                text:  'S/. 00.00'
+                color: 0,0,0,1
+        GridLayout:
+            cols: 5
+            size_hint: (1, .15)
+            Label:
+                text: ''
+            Button:
+                text: 'VOLVER'
+                on_release: root.manager.current = 'boleta'()
+            Label:
+                text: ''
+            Button:
+                text: 'CONFIRMAR VENTA'
+                on_release: root.pop_confirmacion()
+            Label:
+                text: ''
+
+
+<Pop_Advertencia>:
+    size_hint: .8,.35
+    title: 'ADVERTENCIA'
+    BoxLayout: 
+        canvas:
+            Color:
+                rgba: [200/255,210/255,223/255, 1] 
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: 'vertical'
+        Label:
+            text: 'PORFAVOR, INGRESE UNA CANTIDAD MENOR O IGUAL AL STOCK DISPONIBLE'
+            color: 0,0,0,1
+        Button:
+            text: 'ACEPTAR'
+            on_release: root.dismiss()
